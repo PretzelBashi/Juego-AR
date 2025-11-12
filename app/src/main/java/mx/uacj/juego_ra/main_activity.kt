@@ -12,6 +12,7 @@ import android.util.Pair
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -23,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 
 import androidx.core.app.ActivityCompat
@@ -64,7 +66,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Juego_raTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()
+                    ) { innerPadding ->
 
                     var texto_de_ubicacion by remember { mutableStateOf("No tengo permisos para ver tu ubicacion") }
                     var mostrar_resutlado_de_los_permisos by remember { mutableStateOf(false) }
@@ -98,7 +101,8 @@ class MainActivity : ComponentActivity() {
                     ) {}
 
                     Principal(
-                        modificador = Modifier.padding(innerPadding),
+                        modificador = Modifier.padding(innerPadding)
+                            .background(Color((0xFF141414))),
                         ubicacion = ubicacion_actual.value
                     )
 
